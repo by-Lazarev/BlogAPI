@@ -1,13 +1,17 @@
 from fastapi import FastAPI
+from routers import blog_get
+from routers import blog_post
+from db import models
+from db.database import engine
 
-app = FastAPI()
+blogAPI = FastAPI()
+blogAPI.include_router(blog_get.router)
+blogAPI.include_router(blog_post.router)
 
 
-@app.get("/")
+@blogAPI.get("/hello")
 async def root():
     return {"message": "Hello World"}
 
 
-@app.get("/hello/{name}")
-async def say_hello(name: str):
-    return {"message": f"Hello {name}"}
+models.Base.metadata.create_all(engine)
