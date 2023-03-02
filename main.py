@@ -1,12 +1,14 @@
 from fastapi import FastAPI
 from routers import blog_get
 from routers import blog_post
+from routers import user
 from db import models
 from db.database import engine
 
 blogAPI = FastAPI()
 blogAPI.include_router(blog_get.router)
 blogAPI.include_router(blog_post.router)
+blogAPI.include_router(user.router)
 
 
 @blogAPI.get("/hello")
