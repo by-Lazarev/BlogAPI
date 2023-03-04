@@ -9,7 +9,7 @@ class DbUser(Base):
     __tablename__ = "users"
 
     id = Column(Integer, primary_key=True, autoincrement=True, unique=True)
-    username = Column(String)
+    username = Column(String, unique=True)
     email = Column(String)
     password = Column(String)
 

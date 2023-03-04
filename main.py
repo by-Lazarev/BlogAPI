@@ -1,14 +1,14 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from routers import blog_get
-from routers import blog_post
-from routers import user
-from routers import article
+from routers import blog_get, blog_post, article, user
+from auth import authentication
+
 from db import models
 from db.database import engine
 
 blogAPI = FastAPI()
+blogAPI.include_router(authentication.router)
 blogAPI.include_router(blog_get.router)
 blogAPI.include_router(blog_post.router)
 blogAPI.include_router(user.router)
