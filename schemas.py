@@ -24,7 +24,7 @@ class Article(BaseModel):
 
 
 class User(BaseModel):
-    user_id: int
+    id: int
     username: str
 
     class Config:
@@ -44,7 +44,7 @@ class ArticleDisplay(BaseModel):
 class UserDisplay(BaseModel):
     username: str
     email: str
-    articles: list[Article] = []
+    items: list[Article] = []
 
     class Config:
         orm_mode = True

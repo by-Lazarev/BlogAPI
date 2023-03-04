@@ -4,6 +4,7 @@ from sqlalchemy.orm import relationship
 from sqlalchemy.schema import ForeignKey
 from sqlalchemy.sql.sqltypes import Integer, String, Boolean
 
+
 class DbUser(Base):
     __tablename__ = "users"
 
@@ -12,7 +13,8 @@ class DbUser(Base):
     email = Column(String)
     password = Column(String)
 
-    articles = relationship("DbArticle", back_populates="user")
+    items = relationship("DbArticle", back_populates="user")
+
 
 class DbArticle(Base):
     __tablename__ = "articles"
@@ -23,4 +25,4 @@ class DbArticle(Base):
     published = Column(Boolean)
     user_id = Column(Integer, ForeignKey("users.id"))
 
-    user = relationship("DbUser", back_populates="articles")
+    user = relationship("DbUser", back_populates="items")
