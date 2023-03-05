@@ -1,2 +1,3 @@
-/db/config.py
-/auth/config.py
+/*/config.py
+/files/*
+/venv/

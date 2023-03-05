@@ -1,7 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 
-from routers import blog_get, blog_post, article, user
+from routers import blog_get, blog_post, article, user, file
 from auth import authentication
 
 from db import models
@@ -13,6 +14,7 @@ blogAPI.include_router(blog_get.router)
 blogAPI.include_router(blog_post.router)
 blogAPI.include_router(user.router)
 blogAPI.include_router(article.router)
+blogAPI.include_router(file.router)
 
 
 @blogAPI.get("/hello")
@@ -33,3 +35,5 @@ blogAPI.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"]
 )
+
+blogAPI.mount("/files", StaticFiles(directory="files"), name="files")

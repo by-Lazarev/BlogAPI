@@ -6,3 +6,4 @@ pydantic~=1.10.5
 passlib~=1.7.4
 python-jose
 python-multipart
+aiofiles
