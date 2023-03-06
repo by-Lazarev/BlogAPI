@@ -1,5 +1,5 @@
 # BlogAPI
-My Instagram like blog API.
+My FastAPI project like blog API.
 
 
 ***
