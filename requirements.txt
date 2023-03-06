@@ -1,9 +1,11 @@
-fastapi~=0.92.0
+fastapi
 uvicorn
-sqlalchemy~=2.0.4
+sqlalchemy
 psycopg2
-pydantic~=1.10.5
-passlib~=1.7.4
+pydantic
+passlib
 python-jose
 python-multipart
 aiofiles
+requests
+pytest

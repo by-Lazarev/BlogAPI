@@ -20,7 +20,7 @@ def post_file(file: UploadFile = File(...)):
     }
 
 
-@router.get("/download/{file_name}", response_model=FileResponse)
+@router.get("/download/{file_name}", response_class=FileResponse)
 def get_file(file_name: str):
-    path = f"/files/{file_name}"
+    path = f"files/{file_name}"
     return path
